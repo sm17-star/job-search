@@ -8,9 +8,8 @@
 ### For Students / Job Seekers
 - **AI Resume Analysis**: Compare your resume PDF or self-description against specific job descriptions to get a match score.
 - **Strategic Insights**: Receive AI-generated feedback on strengths and missing skills.
-- **Analysis History**: View a persistent record of all past analyses directly in your profile or via the sidebar.
 - **Job Tracking**: Browse, search, and filter jobs; apply with one click and track application status.
-- **Profile Dashboard**: Manage your skills, contact info, and digital resume.
+- **Profile Dashboard**: Manage your skills, contact info, and upload resume.
 
 ### For Recruiters / Admins
 - **Company Branding**: Register and manage multiple company profiles with logos.
@@ -31,7 +30,7 @@
 **Backend:**
 - Node.js & Express.js.
 - **MongoDB & Mongoose**: NoSQL database for flexible data modeling.
-- **Google Generative AI (Gemini 1.5 Flash)**: Powers the intelligent resume parsing and scoring.
+- **Google Generative AI (Gemini 3.5 Flash)**: Powers the intelligent resume parsing and scoring.
 - **Multer & Cloudinary**: For secure file handling and image/PDF storage.
 - **PDF-Parse**: Extracting text data from buffers for AI processing.
 - JWT (JSON Web Tokens) with Cookie-based authentication.
@@ -82,5 +81,4 @@ The core intelligence of the application resides in the `ai.services.js` module.
     - `matchScore`: 0-100% compatibility.
     - `matchingSkills` & `missingSkills`: Detailed arrays of keywords.
     - `aiFeedback`: Actionable points to improve the resume.
-4.  **Persistence**: Every report is automatically saved to MongoDB and linked to the `userId` for future reference.
 
