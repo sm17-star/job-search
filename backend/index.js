@@ -8,6 +8,10 @@ import companyRouter from "./routes/company.routes.js";
 import jobsRouter from "./routes/jobs.routes.js";
 import applicationRouter from "./routes/application.routes.js";
 import aiRouter from "./routes/ai.routes.js";
+
+import dns from "node:dns/promises"
+dns.setServers(["0.0.0.0","1.1.1.1"])
+
 dotenv.config();
 
 const app = express();

@@ -109,6 +109,7 @@ export const login = async (req, res) => {
       phone: user.phone,
       role: user.role,
       profile: user.profile,
+      savedJobs: user.savedJobs || [],
     };
 
     return res
@@ -197,6 +198,7 @@ export const updateProfile = async (req, res) => {
       phone: user.phone,
       role: user.role,
       profile: user.profile,
+      savedJobs: user.savedJobs || [],
     };
 
     return res.status(200).json({

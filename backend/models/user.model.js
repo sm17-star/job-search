@@ -29,6 +29,10 @@ const userSchema=new mongoose.Schema({
         resumeName:{type:String},
         profilePhoto:{type:String ,default:""},
         company:{type:mongoose.Schema.Types.ObjectId ,ref:"Company"}
-    }
+    },
+    savedJobs:[{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"Jobs"
+    }]
 });
 export const User=mongoose.model("User",userSchema)

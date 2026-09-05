@@ -9,11 +9,14 @@ import EditProfileDialog from './EditProfileDialog';
 
 import { Avatar, AvatarImage } from './ui/avatar';
 import Applied from './Applied';
+import Saved from './Saved';
 import useGetAppliedJobs from '../hooks/useGetAppliedJobs';
+import useGetSavedJobs from '../hooks/useGetSavedJobs';
 import Navbar from './common/Navbar';
 
 const Profile = () => {
   useGetAppliedJobs();
+  useGetSavedJobs();
   const [open, setOpen] = useState(false);
   const { user } = useSelector(store => store.auth);
 
@@ -87,6 +90,13 @@ const Profile = () => {
         <h1 className='font-bold text-2xl text-slate-900 mb-6'>Applied Jobs</h1> 
         <Applied />
       </div>
+
+      {user?.role === "student" && (
+        <div className='max-w-4xl mx-auto bg-white rounded-2xl my-5 p-8 shadow-lg border border-slate-200'>
+          <h1 className='font-bold text-2xl text-slate-900 mb-6'>Saved Jobs</h1>
+          <Saved />
+        </div>
+      )}
 
       {/* Edit Profile Dialog */}
       <EditProfileDialog open={open} setOpen={setOpen} />
