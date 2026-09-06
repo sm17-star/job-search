@@ -9,8 +9,8 @@ import jobsRouter from "./routes/jobs.routes.js";
 import applicationRouter from "./routes/application.routes.js";
 import aiRouter from "./routes/ai.routes.js";
 
-import dns from "node:dns/promises"
-dns.setServers(["0.0.0.0","1.1.1.1"])
+ import dns from "node:dns/promises"
+ dns.setServers(["1.1.1.1","8.8.8.8"])
 
 dotenv.config();
 
@@ -21,22 +21,19 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 const allowedOrigins = [
-  // "http://localhost:5173",
-  process.env.FRONTEND_URL
+  process.env.FRONTEND_URL,
+  "http://localhost:5173",
 ].filter(Boolean);
 
-const corsOptions = {
-  origin: (origin, callback) => {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
-  credentials: true
-};
 
-app.use(cors(corsOptions));
+app.use(
+  cors({
+    origin: allowedOrigins,
+    credentials: true,
+  })
+);
+
+
 
 app.get("/", (req, res) => res.send("Backend is running"));
 
